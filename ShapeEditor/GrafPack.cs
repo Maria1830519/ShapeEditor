@@ -6,8 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Windows.Forms;
 using System.Reflection;
 using System.Drawing.Drawing2D;
 
@@ -142,7 +142,32 @@ namespace AssessmentComputerGraphics
             do
             {
                 //https://www.delftstack.com/howto/csharp/create-an-input-dialog-box-in-csharp/
-                string input = Interaction.InputBox("Select number of sides desired for the regular polygon", "SIDES NUMBER", "Default", 250, 250);
+
+                string input = "";
+                Form form = new Form();
+                form.Width = 250;
+                form.Height = 150;
+                form.Text = "Sides Number";
+
+                TextBox textBox = new TextBox();
+                textBox.Location = new System.Drawing.Point(20, 20);
+                textBox.Width = 200;
+                form.Controls.Add(textBox);
+
+                Button button = new Button();
+                button.Location = new System.Drawing.Point(70, 60);
+                button.Text = "OK";
+                button.DialogResult = DialogResult.OK;
+                form.Controls.Add(button);
+
+                form.AcceptButton = button;
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    input = textBox.Text;
+                }
+
+                form.Dispose();
 
                 if (int.TryParse(input, out sides))
                 {
@@ -334,8 +359,31 @@ namespace AssessmentComputerGraphics
                             bool is_number = false;
                             do
                             {
-                                string input = Interaction.InputBox("Select degrees desired for the rotation", "ANGLES", "*insert degree*", 350, 250);
+                                string input = "";
+                                Form form = new Form();
+                                form.Width = 250;
+                                form.Height = 150;
+                                form.Text = "Degree";
 
+                                TextBox textBox = new TextBox();
+                                textBox.Location = new System.Drawing.Point(20, 20);
+                                textBox.Width = 200;
+                                form.Controls.Add(textBox);
+
+                                Button button = new Button();
+                                button.Location = new System.Drawing.Point(70, 60);
+                                button.Text = "OK";
+                                button.DialogResult = DialogResult.OK;
+                                form.Controls.Add(button);
+
+                                form.AcceptButton = button;
+
+                                if (form.ShowDialog() == DialogResult.OK)
+                                {
+                                    input = textBox.Text;
+                                }
+
+                                form.Dispose();
                                 if (int.TryParse(input, out sides))
                                 {
                                     degree = Int32.Parse(input);
@@ -469,8 +517,31 @@ namespace AssessmentComputerGraphics
                             bool is_number = false;
                             do
                             {
-                                string input = Interaction.InputBox("Introduce how much you would like to re-scale the shape", "Sie", "*insert number*", 350, 250);
+                                string input = "";
+                                Form form = new Form();
+                                form.Width = 250;
+                                form.Height = 150;
+                                form.Text = "Resize scale: ";
 
+                                TextBox textBox = new TextBox();
+                                textBox.Location = new System.Drawing.Point(20, 20);
+                                textBox.Width = 200;
+                                form.Controls.Add(textBox);
+
+                                Button button = new Button();
+                                button.Location = new System.Drawing.Point(70, 60);
+                                button.Text = "OK";
+                                button.DialogResult = DialogResult.OK;
+                                form.Controls.Add(button);
+
+                                form.AcceptButton = button;
+
+                                if (form.ShowDialog() == DialogResult.OK)
+                                {
+                                    input = textBox.Text;
+                                }
+
+                                form.Dispose();
                                 if (double.TryParse(input, out resize))
                                 {
                                     resize = Convert.ToDouble(input);
