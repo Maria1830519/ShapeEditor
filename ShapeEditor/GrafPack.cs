@@ -141,8 +141,8 @@ namespace AssessmentComputerGraphics
             bool is_number = false;
             do
             {
-                //https://www.delftstack.com/howto/csharp/create-an-input-dialog-box-in-csharp/
-
+               
+                //Input dialog box
                 string input = "";
                 Form form = new Form();
                 form.Width = 250;
@@ -338,7 +338,6 @@ namespace AssessmentComputerGraphics
                             moving = true;
 
                             return;
-                            //break;
 
                         }
 
@@ -359,6 +358,7 @@ namespace AssessmentComputerGraphics
                             bool is_number = false;
                             do
                             {
+                                //Input box
                                 string input = "";
                                 Form form = new Form();
                                 form.Width = 250;
@@ -517,6 +517,7 @@ namespace AssessmentComputerGraphics
                             bool is_number = false;
                             do
                             {
+                                //Input box
                                 string input = "";
                                 Form form = new Form();
                                 form.Width = 250;
